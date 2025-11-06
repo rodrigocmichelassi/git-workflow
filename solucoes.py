@@ -13,8 +13,15 @@ def encontrar_maior_palavra(frase):
 
     for palavra in palavras:
         limpa = palavra.strip(string.punctuation)
+        
+        if any(ch.isdigit() for ch in limpa):
+            continue
+        
         if len(limpa) > maior_tamanho:
             maior_tamanho = len(limpa)
             maior_palavra = limpa
 
     return maior_palavra
+
+frase = "O rato roeu a roupa do rei de Roma 1000000."
+print(encontrar_maior_palavra(frase))
